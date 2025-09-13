@@ -518,3 +518,147 @@ def myfunc1():
 
 print(myfunc1())
 # %%
+import platform
+
+x = platform.system()
+print(x)
+print(dir(platform))
+# %%
+import datetime
+
+x = datetime.datetime.now()
+
+print(x.year)
+print(x.strftime("%A"))
+print(x.strftime("%d-%m-%Y"))
+# %%
+
+import math
+print(len(dir(math)))
+print('\n'.join(x for x in iter(dir(math))))
+
+# %%
+import json
+
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
+z = dict(name="muthu", age=31, city="Nebraska")
+z1 = {1:"unknown", "name":"muthu", "age":"31", "city":"Nebraska"}
+print(z1)
+# parse x:
+y = json.loads(x)
+z2 = json.loads(z1)
+print(z2)
+# %%
+# the result is a Python dictionary:
+print(z)
+print(x)
+print(y)
+print(y["age"])
+print(type(y))
+print(json.dumps(z))
+# %%
+import json
+
+print(json.dumps({"name": "John", "age": 30}))
+print(json.dumps(["apple", "bananas"]))
+print(json.dumps(("apple", "bananas")))
+print(json.dumps("hello"))
+print(json.dumps(42))
+print(json.dumps(31.76))
+print(json.dumps(True))
+print(json.dumps(False))
+print(json.dumps(None))
+# %%
+import json
+
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann","Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+
+# print(json.dumps(x))
+# print(json.dumps(x, indent=4))
+print(json.dumps(x, indent=4, sort_keys=True))
+# print(json.dumps(x, indent=4, separators=(". ", " = ")))
+
+# %%
+
+import json
+z1 = {1:"unknown", "name":"muthu", "age":"31", "city":"Nebraska"}
+print(z1)
+print(json.dumps(z1))
+#%%
+z2 = json.loads(json.dumps(z1))
+print(z2)
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+y = re.findall("^The.*SKpain$", txt)
+print(x)
+print(x.start())
+print(x.end())
+print(x.group())
+print(x.string)
+print(x.span())
+print(y)
+# print(y.group())
+# print(x.match)
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.search("^.*S.*$", txt)
+
+print("The first white-space character is located in position:", x.start())
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.search("Portugal", txt)
+print(x)
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.split(r"\s", txt, 2)
+print(x)
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.sub(r"\s", "9", txt, 2)
+print(x)
+# %%
+import re
+
+txt = "The rain in Spain"
+x = re.search(r"^The.*Spain$", txt)
+# x = re.search(r"\bS\w+", txt)
+print(x.group())
+print(x.string)
+
+
+# %%
+import re
+txt = 'The rain in Spain'
+x = re.findall('[a-sA-S]', txt)
+print(x)
+# %%
+import camelcase
+
+c = camelcase.CamelCase()
+
+txt = "hello world"
+
+print(c.hump(txt))
