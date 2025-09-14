@@ -305,3 +305,82 @@ If it’s just a project with loose scripts → add `pythonpath = src` in `pytes
 ---
 
 👉 Do you want me to show you a **sample folder structure** (`src/`, `tests/`, config) and how to set it up for pytest?
+
+Got it 👍 Let’s go step by step with **`set`** and **`frozenset`** in Python.
+
+---
+
+## 🔹 `set`
+
+* **Mutable collection** of **unique elements**.
+* Supports operations like **add**, **remove**, **union**, **intersection**, etc.
+* Not hashable (can’t be used as a dictionary key or inside another set).
+
+### Example:
+
+```python
+# Creating a set
+fruits = {"apple", "banana", "cherry", "apple"}  # duplicate "apple" ignored
+print(fruits)   # {'apple', 'banana', 'cherry'}
+
+# Add and remove
+fruits.add("orange")
+fruits.remove("banana")
+print(fruits)   # {'apple', 'cherry', 'orange'}
+
+# Set operations
+a = {1, 2, 3}
+b = {3, 4, 5}
+print(a | b)  # union → {1, 2, 3, 4, 5}
+print(a & b)  # intersection → {3}
+print(a - b)  # difference → {1, 2}
+```
+
+---
+
+## 🔹 `frozenset`
+
+* **Immutable version** of `set`.
+* Once created, elements cannot be added or removed.
+* **Hashable** → can be used as dictionary keys or stored in other sets.
+* Still supports set operations like union, intersection, difference.
+
+### Example:
+
+```python
+# Creating frozenset
+fs = frozenset([1, 2, 3, 2, 1])
+print(fs)   # frozenset({1, 2, 3})
+
+# Immutable → cannot do fs.add() or fs.remove()
+# fs.add(4)  # ❌ AttributeError
+
+# But you can still do set operations
+a = frozenset([1, 2, 3])
+b = frozenset([3, 4, 5])
+print(a | b)  # frozenset({1, 2, 3, 4, 5})
+print(a & b)  # frozenset({3})
+```
+
+---
+
+## 🔑 Differences between `set` and `frozenset`
+
+| Feature    | `set`                              | `frozenset`                         |
+| ---------- | ---------------------------------- | ----------------------------------- |
+| Mutability | Mutable (can add/remove)           | Immutable (cannot change)           |
+| Hashable   | ❌ No                               | ✅ Yes (can be dict key)             |
+| Use Case   | For collections you need to modify | For fixed collections, safe as keys |
+| Syntax     | `{1, 2, 3}`                        | `frozenset([1, 2, 3])`              |
+
+---
+
+✅ **When to use which?**
+
+* Use **`set`** when you need a dynamic collection (adding/removing).
+* Use **`frozenset`** when you need an **unchangeable, hashable collection**, e.g., as a key in a dictionary.
+
+---
+
+Would you like me to also show you a **real-world example** where `frozenset` is required but `set` would fail?
+

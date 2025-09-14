@@ -745,3 +745,55 @@ print("Thank you!")
 my_array = [7, 12, 9, 4, 11, 8]
 print(min(my_array))
 # %%
+
+str = "hello welcome to my world"
+str1 = "hello1234"
+str2 = "Hello"
+str3 = " "
+print(str1.isalnum())
+print(str2.isalpha())
+print(str1.isdecimal())
+print(str1.isnumeric())
+print(str1.isdigit())
+print(str.islower())
+print(str.isprintable())
+print(str3.isspace())
+# %%
+# Creating frozenset
+fs = frozenset([1, 2, 3, 2, 1])
+print(fs)   # frozenset({1, 2, 3})
+
+# Immutable → cannot do fs.add() or fs.remove()
+# fs.add(4)  # ❌ AttributeError
+
+# But you can still do set operations
+a = frozenset([1, 2, 3])
+b = frozenset([3, 4, 5])
+print(a | b)  # frozenset({1, 2, 3, 4, 5})
+print(a & b)  # frozenset({3})
+
+# %%
+
+# def len(name):
+#    print("Hello", name)
+
+len("muthu")
+
+my_list = [1, 2, 3]
+print(len(my_list))
+
+# %%
+str = "Hello"
+st1 = 'Hello'
+print(str is st1)
+# %%
+str = "Hello"[0]
+print(str)
+# %%
+str = " Hello "
+print(str.strip())
+print(str.trim())
+
+# %%
+str = "Hello"
+print(str.replace("H", "J"))
