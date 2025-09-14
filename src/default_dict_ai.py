@@ -34,3 +34,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# how to run
+# python src/default_dict_ai.py < tests/input/default_dict_tc1
