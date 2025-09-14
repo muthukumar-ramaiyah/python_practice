@@ -662,3 +662,86 @@ c = camelcase.CamelCase()
 txt = "hello world"
 
 print(c.hump(txt))
+# %%
+x = "hello"
+
+if not type(x) is int:
+  raise TypeError("Only integers are allowed")
+# %%
+txt = f"The price is 49 dollars"
+print(txt)
+# %%
+price = 59
+txt = f"The price is {price} dollars"
+print(txt)
+# %%
+price = 59.0
+txt = f"The price is {price:.2f} dollars"
+print(txt)
+# %%
+txt = f"The price is {95:.2f} dollars"
+print(txt)
+# %%
+txt = f"The price is {20 * 59} dollars"
+print(txt)
+# %%
+price = 49
+txt = f"It is very {'Expensive' if price>50 else 'Cheap'}"
+
+print(txt)
+# %%
+price = 59000
+txt = f"The price is {price:,} dollars"
+print(txt)
+# %%
+txt = f"We have {49:<8} chickens."
+print(txt)
+# %%
+txt = f"We have {49:>8} chickens."
+print(txt)
+# %%
+txt = f"We have {49:^7} chickens."
+print(txt)
+# %%
+txt = f"We have {-49:=} chickens."
+print(txt)
+# %%
+txt = f"We have {49:+} chickens."
+print(txt)
+# %%
+quantity = 3
+itemno = 567
+price = 49
+myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+print(myorder.format(quantity, itemno, price))
+print(f"I want {quantity} pieces of item number {itemno} for {price:.2f} dollars.")
+# %%
+age = 36
+name = "John"
+txt = "His name is {1}. {1} is {0} years old."
+print(txt.format(age, name))
+# %%
+# %%
+age = 36
+name = "John"
+txt = "His name is {}. {} is {} years old."
+print(txt.format(name, name, age))
+# %%
+print("Enter your name:")
+name = input()
+print(f"Hello {name}")
+# %%
+y = True
+while y == True:
+  x = input("Enter a number:")
+  try:
+    x = float(x);
+    y = False
+  except:
+    print("Wrong input, please try again.")
+
+print("Thank you!")
+# %%
+my_array = [7, 12, 9, 4, 11, 8]
+print(min(my_array))
+# %%

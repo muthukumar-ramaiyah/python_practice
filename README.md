@@ -158,3 +158,150 @@ async      elif       if         or         yield
 ---
 
 Do you want me to also make you a **cheat sheet table (keyword + short meaning)** so it’s easier to memorize for interviews?
+
+Yes 😃 Python has a few fun libraries for **text-based drawings / ASCII art**, similar to `cowsay` in Unix.
+
+Here are some popular ones:
+
+---
+
+### 🐮 1. [`cowsay`](https://pypi.org/project/cowsay/) (Python port of classic cowsay)
+
+* Brings the classic \*nix `cowsay` tool to Python.
+* Supports different “characters” (cow, dragon, tux, etc.).
+
+```python
+import cowsay
+
+cowsay.cow("Hello, world!")
+cowsay.tux("I am Linux penguin!")
+```
+
+---
+
+### ✏️ 2. [`art`](https://pypi.org/project/art/)
+
+* ASCII art text generator.
+* Can draw **decorative text** and predefined art objects.
+
+```python
+from art import *
+print(text2art("HELLO"))
+print(art("happy"))
+```
+
+---
+
+### 🎨 3. [`pyfiglet`](https://pypi.org/project/pyfiglet/)
+
+* Python port of `FIGlet` → generates fancy text banners.
+
+```python
+import pyfiglet
+
+print(pyfiglet.figlet_format("Python"))
+```
+
+---
+
+### 🖼️ 4. [`asciimatics`](https://pypi.org/project/asciimatics/)
+
+* More advanced: animations, full-screen text UIs, and ASCII art.
+* Useful for making retro-style terminal apps.
+
+---
+
+### 🐍 5. [`termgraph`](https://pypi.org/project/termgraph/)
+
+* Not art, but lets you **draw graphs and charts** in text.
+* Great for visualizing numbers in CLI.
+
+---
+
+👉 So for something like **cowsay specifically**, you can use the Python `cowsay` package. For **big ASCII text**, use `pyfiglet` or `art`. For **animations**, use `asciimatics`.
+
+---
+
+Would you like me to show you a **combined demo script** that prints:
+
+1. A `cowsay` cow 🐮
+2. A `pyfiglet` banner
+3. An `art` drawing
+
+all in one terminal run?
+
+Great question 👍 This is a **common issue** in Python projects when your tests can’t find code inside a `src/` folder.
+
+There are a few ways to add `src` to the `PYTHONPATH` when running pytest:
+
+---
+
+### ✅ 1. Recommended: use `pytest` with `PYTHONPATH`
+
+Run pytest with the environment variable set:
+
+```bash
+PYTHONPATH=src pytest
+```
+
+This tells Python to include `src/` when resolving imports.
+
+---
+
+### ✅ 2. Add `src/` to `sys.path` in `conftest.py`
+
+Inside your `tests/conftest.py` (runs before tests):
+
+```python
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
+```
+
+This ensures all tests can import from `src/`.
+
+---
+
+### ✅ 3. Use `pytest.ini` or `pyproject.toml`
+
+If you don’t want to mess with environment variables, configure pytest:
+
+**pytest.ini**
+
+```ini
+[pytest]
+pythonpath = src
+```
+
+or in **pyproject.toml**
+
+```toml
+[tool.pytest.ini_options]
+pythonpath = [
+    "src"
+]
+```
+
+---
+
+### ✅ 4. Install your package in editable mode
+
+If your `src/` contains a package (with `setup.py` or `pyproject.toml`):
+
+```bash
+pip install -e .
+pytest
+```
+
+This way imports just work, no need to hack paths.
+
+---
+
+🔑 **Best Practice:**
+If this is a proper Python package → go with **editable install (`pip install -e .`)**.
+If it’s just a project with loose scripts → add `pythonpath = src` in `pytest.ini`.
+
+---
+
+👉 Do you want me to show you a **sample folder structure** (`src/`, `tests/`, config) and how to set it up for pytest?
