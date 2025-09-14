@@ -384,3 +384,95 @@ print(a & b)  # frozenset({3})
 
 Would you like me to also show you a **real-world example** where `frozenset` is required but `set` would fail?
 
+Nice — this Hackerrank task is exactly what `collections.defaultdict(list)` is made for.
+Below is a clean, efficient solution (reads from stdin, uses 1-based indices, prints `-1` when not found).
+
+### ✅ Key idea
+
+Build a mapping from each word in the first list → list of 1-based positions where it appears. Then for each query, print the stored indices or `-1`.
+
+### ✅ Complexity
+
+* Building map: O(n) (each append is O(1))
+* Answering queries: O(m + total printed indices)
+  Overall: O(n + m + total\_occurrences) time, and O(n) extra space.
+
+---
+
+### Solution (Python 3)
+
+```python
+# solution.py
+import sys
+from collections import defaultdict
+
+def main():
+    data = sys.stdin.read().strip().split()
+    if not data:
+        return
+
+    it = iter(data)
+    n = int(next(it))
+    m = int(next(it))
+
+    positions = defaultdict(list)
+
+    # read n words and record 1-based indices
+    for i in range(1, n + 1):
+        word = next(it)
+        positions[word].append(i)
+
+    out_lines = []
+    # read m query words
+    for _ in range(m):
+        q = next(it)
+        if q in positions:
+            out_lines.append(" ".join(map(str, positions[q])))
+        else:
+            out_lines.append("-1")
+
+    sys.stdout.write("\n".join(out_lines))
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+### Usage
+
+* Save as `solution.py` and run:
+
+```bash
+python3 solution.py < input.txt
+```
+
+or paste into Hackerrank’s editor.
+
+---
+
+### Example
+
+Input
+
+```
+5 2
+a
+a
+b
+a
+b
+a
+b
+```
+
+Output
+
+```
+1 2 4
+3 5
+```
+
+---
+
+If you want, I can also provide a one-liner variant or a version that prints results as they are computed (instead of collecting `out_lines`). Which style do you prefer?

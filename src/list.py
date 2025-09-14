@@ -803,9 +803,3 @@ print(list(enumerate(my_list)))
 # indexes = [i for i, x in enumerate(my_list) if x == 20]
 # print(indexes)  # [1, 3, 5]
 # %%
-my_list = [10, 20, 30, 20, 40, 20]
-
-a = 200
-indexes = [i for i, x in enumerate(my_list) if x == a else return -1]
-print(indexes)  # [1, 3, 5]
-# %%
