@@ -1,4 +1,5 @@
 # solution.py
+# https://www.hackerrank.com/challenges/py-collections-namedtuple/problem?isFullScreen=true
 import sys
 from collections import namedtuple
 

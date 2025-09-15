@@ -476,3 +476,29 @@ Output
 ---
 
 If you want, I can also provide a one-liner variant or a version that prints results as they are computed (instead of collecting `out_lines`). Which style do you prefer?
+
+Here’s a concise solution for the *Collections.namedtuple()* Hackerrank problem in **4 lines or fewer**:
+
+```python
+from collections import namedtuple
+n = int(input())
+Student = namedtuple('Student', input().split())
+print("%.2f" % (sum(int(Student._make(input().split()).MARKS) for _ in range(n)) / n))
+```
+
+### 🔍 Explanation
+
+1. `namedtuple('Student', input().split())`: Read the header line, split column names, create the namedtuple class.
+2. For each of the next `n` lines:
+
+   * `input().split()` → split the student record.
+   * `Student._make(...)` → build a namedtuple instance.
+   * `.MARKS` → access the marks field.
+   * `int(...)` → convert marks to integer.
+3. Sum these marks and divide by `n` to get the average.
+4. `print("%.2f" % ...)` → format to 2 decimal places.
+
+---
+
+If you want, I can also give you a version that guards against division by zero or handles rounding slightly differently.
+
