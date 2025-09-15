@@ -57,6 +57,5 @@ for k in b:
 
 
 # output
-# 200
-# hackerrank
-# %%
+# 1 2 4
+# 3 5⏎  
