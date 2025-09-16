@@ -803,3 +803,9 @@ print(list(enumerate(my_list)))
 # indexes = [i for i, x in enumerate(my_list) if x == 20]
 # print(indexes)  # [1, 3, 5]
 # %%
+thisset = {"apple", "banana", "cherry"}
+print(thisset)
+thisset.add('muthu')
+
+print(thisset)
+# %%
