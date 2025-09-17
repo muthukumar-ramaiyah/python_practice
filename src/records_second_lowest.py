@@ -23,17 +23,19 @@ if __name__ == '__main__':
 
 # testcase 0
 # input:
-# 5
-# Harry
-# 37.21
-# Berry         
-# 37.21
-# Tina
-# 37.21
-# Akriti
-# 41.0
-# Harsh
-# 39.0
+"""
+5
+Harry
+37.21
+Berry         
+37.21
+Tina
+37.21
+Akriti
+41.0
+Harsh
+39.0
+"""
 
 # output:
 # Berry

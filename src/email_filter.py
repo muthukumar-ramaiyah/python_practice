@@ -23,11 +23,12 @@ print(filtered_emails)
 
 # testcase 0 
 # input
-# 3
-# lara@hackerrank.com
-# brian-23@hackerrank.com
-# britts_54@hackerrank.com
-
+"""
+3
+lara@hackerrank.com
+brian-23@hackerrank.com
+britts_54@hackerrank.com
+"""
 # output
 # ['brian-23@hackerrank.com', 'britts_54@hackerrank.com', 'lara@hackerrank.com']
 

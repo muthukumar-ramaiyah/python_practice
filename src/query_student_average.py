@@ -13,11 +13,13 @@ if __name__ == '__main__':
 
 # testcase 0
 # input:
-# 3
-# Krishna 67 68 69
-# Arjun 70 98 63
-# Malika 52 56 60
-# Malika
+"""
+3
+Krishna 67 68 69
+Arjun 70 98 63
+Malika 52 56 60
+Malika
+"""
 
 # output:
 # 56.00
